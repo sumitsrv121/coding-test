@@ -1,0 +1,54 @@
+{
+    "C1": {
+        "type": "COMPUTER",
+        "targets": [
+            "C2",
+            "C3"
+        ]
+    },
+    "C2": {
+        "type": "COMPUTER",
+        "targets": [
+            "C1"
+        ]
+    },
+    "C3": {
+        "type": "COMPUTER",
+        "targets": [
+            "C1",
+            "R1"
+        ]
+    },
+    "R1": {
+        "type": "REPEATER",
+        "targets": [
+            "C3",
+            "C4"
+        ]
+    },
+    "C4": {
+        "type": "COMPUTER",
+        "targets": [
+            "R1",
+            "C5",
+            "C6"
+        ]
+    },
+    "C5": {
+        "type": "COMPUTER",
+        "targets": [
+            "C4"
+        ]
+    },
+    "C6": {
+        "type": "COMPUTER",
+        "targets": [
+            "C4",
+            "C7"
+        ]
+    },
+    "C7": {
+        "type": "COMPUTER",
+        "targets": []
+    }
+}
