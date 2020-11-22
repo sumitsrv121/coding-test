@@ -9,6 +9,7 @@ const fetchPath = (source, dest, strength = 5) => {
     let distance = 0
     const nodes = Object.keys(data)
     const visited = {}
+    const tracker = {}
     nodes.forEach((node) => {
         visited[node] = false
     })
@@ -38,9 +39,11 @@ const fetchPath = (source, dest, strength = 5) => {
                 for (let i = 0; i < childList.length; i++) {
                     const child = childList[i]
                     if (child === dest) {
-                        return ++distance
+                        tracker[dest] = node
+                        return { minDistance: ++distance, path: getPath(source, dest, tracker) }
                     }
                     if (!visited[child]) {
+                        tracker[child] = node
                         queue.enqueue(child)
                         visited[child] = true
                     }
@@ -56,6 +59,17 @@ const fetchPath = (source, dest, strength = 5) => {
     }
 }
 
+
+const getPath = (source, dest, tracker) => {
+    let path = ''
+    let start = dest
+    while (start !== source) {
+        path += `${start} <= `
+        start = tracker[start]
+    }
+    path += `${source}`
+    return path
+}
 
 module.exports = {
     fetchPath

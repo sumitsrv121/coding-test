@@ -21,6 +21,10 @@ class Queue {
     size() {
         return this.items.length
     }
+
+    print() {
+        console.log(this.items)
+    }
 }
 
 

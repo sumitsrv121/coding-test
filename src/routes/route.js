@@ -34,7 +34,7 @@ router.post('/connections', (req, res) => {
         })
     }
 
-    res.status(201).send()
+    res.status(201).send(data)
 })
 
 //list all devices in network
@@ -52,9 +52,7 @@ router.get('/info-routes', (req, res) => {
             error: 'No route found'
         })
     } else {
-        return res.send({
-            minDistance: dist
-        })
+        return res.send(dist)
     }
 
 })
